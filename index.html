@@ -7,446 +7,86 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
-    --gold: #f9c74b;
-    --olive: #69732a;
-    --amber: #e28c37;
-    --cream: #faf7f0;
-    --dark: #1a1a14;
-    --mid: #3d3d2a;
-    --muted: #7a7660;
-    --border: rgba(105,115,42,0.25);
+    --gold: #f9c74b; --olive: #69732a; --amber: #e28c37;
+    --cream: #faf7f0; --dark: #1a1a14; --mid: #3d3d2a;
+    --muted: #7a7660; --border: rgba(105,115,42,0.25);
   }
-
   html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'Jost', sans-serif;
-    background: var(--cream);
-    color: var(--dark);
-    font-size: 16px;
-    line-height: 1.7;
-  }
-
-  /* ── HERO ── */
-  .hero {
-    background: var(--dark);
-    color: var(--cream);
-    padding: 3.5rem 1.5rem 3rem;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(
-      90deg,
-      transparent,
-      transparent 18px,
-      rgba(249,199,75,0.04) 18px,
-      rgba(249,199,75,0.04) 19px
-    ),
-    repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 18px,
-      rgba(249,199,75,0.04) 18px,
-      rgba(249,199,75,0.04) 19px
-    );
-    pointer-events: none;
-  }
-
-  .hero-wordmark {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-size: 4.2rem;
-    letter-spacing: 0.12em;
-    color: var(--gold);
-    line-height: 1;
-    text-transform: uppercase;
-    position: relative;
-  }
-
-  .hero-sub {
-    font-family: 'Jost', sans-serif;
-    font-weight: 300;
-    letter-spacing: 0.35em;
-    font-size: 0.78rem;
-    color: rgba(249,199,75,0.65);
-    text-transform: uppercase;
-    margin-top: 0.4rem;
-    position: relative;
-  }
-
-  .hero-divider {
-    width: 48px;
-    height: 1px;
-    background: var(--amber);
-    margin: 1.8rem auto;
-    position: relative;
-  }
-
-  .hero-tagline {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-weight: 300;
-    font-size: 1.15rem;
-    color: rgba(250,247,240,0.85);
-    max-width: 320px;
-    margin: 0 auto;
-    position: relative;
-    line-height: 1.6;
-  }
-
-  .hero-meta {
-    margin-top: 1.8rem;
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    position: relative;
-  }
-
-  .hero-meta-item {
-    text-align: center;
-  }
-
-  .hero-meta-item .label {
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--amber);
-    display: block;
-  }
-
-  .hero-meta-item .value {
-    font-size: 0.9rem;
-    font-weight: 400;
-    color: var(--cream);
-    display: block;
-    margin-top: 0.15rem;
-  }
-
-  /* ── WAVE SEPARATOR ── */
-  .wave {
-    display: block;
-    width: 100%;
-    height: 40px;
-    background: var(--dark);
-    clip-path: ellipse(55% 100% at 50% 0%);
-  }
-
-  /* ── INTRO ── */
-  .intro {
-    padding: 2.5rem 1.5rem 2rem;
-    max-width: 480px;
-    margin: 0 auto;
-  }
-
-  .intro p {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.05rem;
-    color: var(--mid);
-    line-height: 1.75;
-  }
-
-  .intro p + p {
-    margin-top: 1rem;
-  }
-
-  /* ── SECTION HEADER ── */
-  .section-label {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0 1.5rem;
-    margin: 0.5rem 0 1rem;
-  }
-
-  .section-label span {
-    font-size: 0.65rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    font-weight: 500;
-    color: var(--olive);
-  }
-
-  .section-label::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--border);
-  }
-
-  /* ── SPACE CARDS ── */
-  .spaces {
-    padding: 0 1rem 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    margin: 0 1rem;
-    overflow: hidden;
-  }
-
-  .space-card {
-    background: var(--cream);
-    padding: 1.25rem 1.25rem 1.25rem 0;
-    display: grid;
-    grid-template-columns: 54px 1fr;
-    gap: 0;
-    cursor: pointer;
-    transition: background 0.15s;
-  }
-
-  .space-card:hover, .space-card:focus {
-    background: #f3efe4;
-    outline: none;
-  }
-
-  .space-card:not(:last-child) {
-    border-bottom: 1px solid var(--border);
-  }
-
-  .space-num {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 0.1rem;
-  }
-
-  .space-num .num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.6rem;
-    font-weight: 600;
-    color: var(--gold);
-    line-height: 1;
-  }
-
-  .space-num .dot {
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background: var(--amber);
-    margin-top: 6px;
-  }
-
-  .space-info {}
-
-  .space-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: var(--dark);
-    line-height: 1.3;
-  }
-
-  .space-artist {
-    font-size: 0.75rem;
-    letter-spacing: 0.05em;
-    color: var(--olive);
-    font-weight: 500;
-    margin-top: 0.2rem;
-    text-transform: uppercase;
-  }
-
-  .space-medium {
-    font-size: 0.8rem;
-    color: var(--muted);
-    margin-top: 0.25rem;
-    font-style: italic;
-  }
-
-  /* ── MODAL ── */
-  .overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(26,26,20,0.72);
-    z-index: 100;
-    display: flex;
-    align-items: flex-end;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.22s;
-  }
-
-  .overlay.open {
-    opacity: 1;
-    pointer-events: all;
-  }
-
-  .sheet {
-    background: var(--cream);
-    width: 100%;
-    max-height: 88vh;
-    overflow-y: auto;
-    border-radius: 18px 18px 0 0;
-    padding: 0 0 2.5rem;
-    transform: translateY(100%);
-    transition: transform 0.25s cubic-bezier(.4,0,.2,1);
-  }
-
-  .overlay.open .sheet {
-    transform: translateY(0);
-  }
-
-  .sheet-handle {
-    width: 36px;
-    height: 4px;
-    background: rgba(105,115,42,0.3);
-    border-radius: 2px;
-    margin: 1rem auto 0;
-  }
-
-  .sheet-header {
-    padding: 1.5rem 1.5rem 0;
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 1.25rem;
-  }
-
-  .sheet-space-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.8rem;
-    letter-spacing: 0.2em;
-    color: var(--amber);
-    text-transform: uppercase;
-    font-weight: 400;
-  }
-
-  .sheet-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.7rem;
-    font-weight: 600;
-    color: var(--dark);
-    line-height: 1.2;
-    margin-top: 0.2rem;
-  }
-
-  .sheet-artist {
-    font-size: 0.8rem;
-    letter-spacing: 0.08em;
-    color: var(--olive);
-    font-weight: 500;
-    text-transform: uppercase;
-    margin-top: 0.5rem;
-  }
-
-  .sheet-meta {
-    padding: 1rem 1.5rem 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-  }
-
-  .sheet-meta-row {
-    font-size: 0.82rem;
-    color: var(--muted);
-  }
-
-  .sheet-meta-row strong {
-    color: var(--mid);
-    font-weight: 500;
-  }
-
-  .sheet-desc {
-    padding: 1.25rem 1.5rem 0;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.05rem;
-    color: var(--mid);
-    line-height: 1.75;
-  }
-
-  .sheet-close {
-    position: absolute;
-    top: 1rem;
-    right: 1.25rem;
-    background: none;
-    border: 1px solid var(--border);
-    border-radius: 50%;
-    width: 32px;
-    height: 32px;
-    font-size: 1rem;
-    color: var(--muted);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    line-height: 1;
-  }
-
-  /* ── TEAM ── */
-  .team-section {
-    padding: 0 1.5rem 2.5rem;
-  }
-
-  .team-text {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1rem;
-    color: var(--mid);
-    line-height: 1.75;
-  }
-
-  .handles {
-    margin-top: 1rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
-  .handle-pill {
-    background: rgba(105,115,42,0.1);
-    color: var(--olive);
-    border: 1px solid rgba(105,115,42,0.2);
-    border-radius: 999px;
-    padding: 0.2rem 0.7rem;
-    font-size: 0.78rem;
-    font-weight: 500;
-  }
-
-  /* ── THANKS ── */
-  .thanks {
-    background: var(--dark);
-    color: var(--cream);
-    padding: 2.5rem 1.5rem;
-    text-align: center;
-    margin-top: 1.5rem;
-  }
-
-  .thanks-label {
-    font-size: 0.65rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--amber);
-    display: block;
-    margin-bottom: 0.75rem;
-  }
-
-  .thanks p {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1rem;
-    color: rgba(250,247,240,0.75);
-    line-height: 1.7;
-  }
-
-  .thanks-names {
-    margin-top: 1rem;
-    font-size: 0.85rem;
-    color: rgba(250,247,240,0.5);
-    line-height: 2;
-  }
-
-  .color-bar {
-    height: 5px;
-    display: flex;
-  }
+  body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--dark); font-size: 16px; line-height: 1.7; }
+  .hero { background: var(--dark); color: var(--cream); padding: 3.5rem 1.5rem 3rem; text-align: center; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(90deg,transparent,transparent 18px,rgba(249,199,75,0.04) 18px,rgba(249,199,75,0.04) 19px),repeating-linear-gradient(0deg,transparent,transparent 18px,rgba(249,199,75,0.04) 18px,rgba(249,199,75,0.04) 19px); pointer-events: none; }
+  .hero-wordmark { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 4.2rem; letter-spacing: 0.12em; color: var(--gold); line-height: 1; text-transform: uppercase; position: relative; }
+  .hero-sub { font-family: 'Jost', sans-serif; font-weight: 300; letter-spacing: 0.35em; font-size: 0.78rem; color: rgba(249,199,75,0.65); text-transform: uppercase; margin-top: 0.4rem; position: relative; }
+  .hero-divider { width: 48px; height: 1px; background: var(--amber); margin: 1.8rem auto; position: relative; }
+  .hero-tagline { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 300; font-size: 1.15rem; color: rgba(250,247,240,0.85); max-width: 320px; margin: 0 auto; position: relative; line-height: 1.6; }
+  .hero-meta { margin-top: 1.8rem; display: flex; justify-content: center; gap: 1.5rem; position: relative; }
+  .hero-meta-item { text-align: center; }
+  .hero-meta-item .label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--amber); display: block; }
+  .hero-meta-item .value { font-size: 0.9rem; font-weight: 400; color: var(--cream); display: block; margin-top: 0.15rem; }
+  .wave { display: block; width: 100%; height: 40px; background: var(--dark); clip-path: ellipse(55% 100% at 50% 0%); }
+  .intro { padding: 2.5rem 1.5rem 2rem; max-width: 480px; margin: 0 auto; }
+  .intro p { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; color: var(--mid); line-height: 1.75; }
+  .intro p + p { margin-top: 1rem; }
+  .section-label { display: flex; align-items: center; gap: 0.75rem; padding: 0 1.5rem; margin: 0.5rem 0 1rem; }
+  .section-label span { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; font-weight: 500; color: var(--olive); }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .spaces { padding: 0 1rem 1rem; display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 12px; margin: 0 1rem; overflow: hidden; }
+  .space-card { background: var(--cream); padding: 1.25rem 1.25rem 1.25rem 0; display: grid; grid-template-columns: 54px 1fr; gap: 0; cursor: pointer; transition: background 0.15s; }
+  .space-card:hover, .space-card:focus { background: #f3efe4; outline: none; }
+  .space-card:not(:last-child) { border-bottom: 1px solid var(--border); }
+  .space-num { display: flex; flex-direction: column; align-items: center; padding-top: 0.1rem; }
+  .space-num .num { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 600; color: var(--gold); line-height: 1; }
+  .space-num .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--amber); margin-top: 6px; }
+  .space-title { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 600; color: var(--dark); line-height: 1.3; }
+  .space-artist { font-size: 0.75rem; letter-spacing: 0.05em; color: var(--olive); font-weight: 500; margin-top: 0.2rem; text-transform: uppercase; }
+  .space-medium { font-size: 0.8rem; color: var(--muted); margin-top: 0.25rem; font-style: italic; }
+  .overlay { position: fixed; inset: 0; background: rgba(26,26,20,0.72); z-index: 100; display: flex; align-items: flex-end; opacity: 0; pointer-events: none; transition: opacity 0.22s; }
+  .overlay.open { opacity: 1; pointer-events: all; }
+  .sheet { background: var(--cream); width: 100%; max-height: 88vh; overflow-y: auto; border-radius: 18px 18px 0 0; padding: 0 0 2.5rem; transform: translateY(100%); transition: transform 0.25s cubic-bezier(.4,0,.2,1); }
+  .overlay.open .sheet { transform: translateY(0); }
+  .sheet-handle { width: 36px; height: 4px; background: rgba(105,115,42,0.3); border-radius: 2px; margin: 1rem auto 0; }
+  .sheet-header { padding: 1.5rem 1.5rem 0; border-bottom: 1px solid var(--border); padding-bottom: 1.25rem; }
+  .sheet-space-num { font-family: 'Cormorant Garamond', serif; font-size: 0.8rem; letter-spacing: 0.2em; color: var(--amber); text-transform: uppercase; font-weight: 400; }
+  .sheet-title { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 600; color: var(--dark); line-height: 1.2; margin-top: 0.2rem; }
+  .sheet-artist { font-size: 0.8rem; letter-spacing: 0.08em; color: var(--olive); font-weight: 500; text-transform: uppercase; margin-top: 0.5rem; }
+  .sheet-meta { padding: 1rem 1.5rem 0; display: flex; flex-direction: column; gap: 0.3rem; }
+  .sheet-meta-row { font-size: 0.82rem; color: var(--muted); }
+  .sheet-meta-row strong { color: var(--mid); font-weight: 500; }
+  .sheet-desc { padding: 1.25rem 1.5rem 0; font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; color: var(--mid); line-height: 1.75; }
+  .sheet-close { position: absolute; top: 1rem; right: 1.25rem; background: none; border: 1px solid var(--border); border-radius: 50%; width: 32px; height: 32px; font-size: 1rem; color: var(--muted); cursor: pointer; display: flex; align-items: center; justify-content: center; line-height: 1; }
+  .team-section { padding: 0 1.5rem 2.5rem; }
+  .team-text { font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--mid); line-height: 1.75; }
+  .handles { margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .handle-pill { background: rgba(105,115,42,0.1); color: var(--olive); border: 1px solid rgba(105,115,42,0.2); border-radius: 999px; padding: 0.2rem 0.7rem; font-size: 0.78rem; font-weight: 500; }
+  .thanks { background: var(--dark); color: var(--cream); padding: 2.5rem 1.5rem; text-align: center; margin-top: 1.5rem; }
+  .thanks-label { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--amber); display: block; margin-bottom: 0.75rem; }
+  .thanks p { font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: rgba(250,247,240,0.75); line-height: 1.7; }
+  .thanks-names { margin-top: 1rem; font-size: 0.85rem; color: rgba(250,247,240,0.5); line-height: 2; }
+  .color-bar { height: 5px; display: flex; }
   .color-bar span:nth-child(1) { flex: 1; background: var(--gold); }
   .color-bar span:nth-child(2) { flex: 1; background: var(--olive); }
   .color-bar span:nth-child(3) { flex: 1; background: var(--amber); }
+
+  /* ── VIDEO SPACE ── */
+  .sheet-video {
+    padding: 1.25rem 1.5rem 0;
+  }
+  .sheet-video video {
+    width: 100%;
+    border-radius: 10px;
+    background: var(--dark);
+    display: block;
+  }
+  .sheet-video .video-caption {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 0.85rem;
+    color: var(--muted);
+    text-align: center;
+    margin-top: 0.5rem;
+    line-height: 1.5;
+  }
 </style>
 </head>
 <body>
@@ -457,8 +97,7 @@
   <div class="hero-wordmark">Thread</div>
   <div class="hero-sub">Carefully</div>
   <div class="hero-divider"></div>
-  <p class="hero-tagline">A journey through our wardrobes, our waste, and the mindful choices that 
-    can reshape the future of fashion.</p>
+  <p class="hero-tagline">A journey through our wardrobes, our waste, and the mindful choices that can reshape the future of fashion.</p>
   <div class="hero-meta">
     <div class="hero-meta-item">
       <span class="label">Dates</span>
@@ -474,8 +113,7 @@
 <div class="wave"></div>
 
 <section class="intro">
-  <p>THREAD CAREFULLY is an invitation to a new dawn, a beginning of a new conversation 
-    about how we can protect the planet, one thread at a time.</p>
+  <p>THREAD CAREFULLY is an invitation to a new dawn, a beginning of a new conversation about how we can protect the planet, one thread at a time.</p>
   <p>Tap any space below to read about the work and the stories woven into it.</p>
 </section>
 
@@ -483,8 +121,7 @@
   <span>Exhibition Spaces</span>
 </div>
 
-<div class="spaces" id="spaces-list">
-</div>
+<div class="spaces" id="spaces-list"></div>
 
 <br>
 
@@ -493,68 +130,39 @@
 </div>
 
 <div class="team-section">
-  <p class="team-text">This exhibition would have been nothing without the relentless people 
-    working behind the scenes; an entire ecosystem of hard work and shared vision.</p>
+  <p class="team-text">This exhibition would have been nothing without the relentless people working behind the scenes; an entire ecosystem of hard work and shared vision.</p>
   <div class="handles">
     <span class="handle-pill">Oreoluwa Ayoyimika ODUFEJO (YÍÍMIIKÁ)</span>
     <span class="handle-pill">Bridget Moira Steenkamp</span>
     <span class="handle-pill">Nicola Morrison</span>
     <span class="handle-pill">Patrick Orji</span>
     <span class="handle-pill">Abena Abboah-Offei</span>
-    <!-- @ofosua_mm -->
     <span class="handle-pill">Joshua Kayode - RSU President (2025-2026)</span>
-    <!-- @president_rsu -->
     <span class="handle-pill">Naveena Gaddam</span>
     <span class="handle-pill">Adekola Aminat Damilola</span>
     <span class="handle-pill">Rachel Onajayefe</span>
-    <!-- <span class="handle-pill">Southlands College</span> -->
-    <!-- <span class="handle-pill">Bridget Moira Steenkamp</span> -->
-    <!-- <span class="handle-pill">Nicola Morrison</span> -->
-    <!-- <span class="handle-pill">Patrick Orji</span> -->
     <span class="handle-pill">Polina Hlushko</span>
     <span class="handle-pill">Maliha Siddique</span>
     <span class="handle-pill">Oluwafemi Oshofisan</span>
     <span class="handle-pill">Daniel Odunlami</span>
-     <span class="handle-pill">Victor Oluyitan</span>
+    <span class="handle-pill">Victor Oluyitan</span>
     <span class="handle-pill">Toyyibat Abisola Alao</span>
-
     <span class="handle-pill">Emmanuel Chisom Ogbogu-Fidelis</span>
-    <!-- <span class="handle-pill">Rachel Onajayefe</span>
-    <span class="handle-pill">Irene Reynolds</span>
-    <span class="handle-pill">Bridget Moira Steenkamp</span>
-    <span class="handle-pill">Nicola Morrison</span>
-    <span class="handle-pill">Patrick Orji</span>
-    <span class="handle-pill">Polina Hlushko</span>
-    <span class="handle-pill">Maliha Siddique</span>
-    <span class="handle-pill">Oluwafemi Oshofisan</span>
-    <span class="handle-pill">Daniel Odunlami</span>
-     <span class="handle-pill">Victor Oluyitan</span>
-    <span class="handle-pill">Toyyibat Abisola Alao</span> -->
-    
   </div>
 </div>
 
 <footer class="thanks">
   <span class="thanks-label">With gratitude</span>
-  <p>Thank you to every student, staff member, and collaborator who showed up, experimented, 
-    and made their fashionable mark with us.</p>
+  <p>Thank you to every student, staff member, and collaborator who showed up, experimented, and made their fashionable mark with us.</p>
   <div class="thanks-names">
-    SOUTHLANDS METHODIST TRUST <br> 
-     Roehampton Sustainability Team · Southlands College · Bridget's Slow Workshops<br>
-    Roehampton Student Union · Greenpeace Africa · Salvation Army Trading Company Limited (SATCoL) 
-    · Society Of African Students<br>
-
-
-
-
-    <!-- Bridget's Slow Workshops -->
+    SOUTHLANDS METHODIST TRUST<br>
+    Roehampton Sustainability Team · Southlands College · Bridget's Slow Workshops<br>
+    Roehampton Student Union · Greenpeace Africa · Salvation Army Trading Company Limited (SATCoL) · Society Of African Students
   </div>
 </footer>
 
-<!-- <div class="color-bar"><span></span><span></span><span></span></div> -->
 <div class="color-bar"><span></span><span></span><span></span></div>
 
-<!-- Modal overlay -->
 <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
   <div class="sheet" id="sheet">
     <div class="sheet-handle"></div>
@@ -565,6 +173,7 @@
       <div class="sheet-artist" id="sheet-artist"></div>
     </div>
     <div class="sheet-meta" id="sheet-meta"></div>
+    <div class="sheet-video" id="sheet-video" style="display:none;"></div>
     <div class="sheet-desc" id="sheet-desc"></div>
   </div>
 </div>
@@ -581,11 +190,11 @@ const spaces = [
   },
   {
     num: 2,
-    title: "\"Y\" Collection",
+    title: '"Y" Collection',
     artist: "Yíímiiká",
     year: "June 2023",
     medium: "Hand-dyed Funtua textile using recycled batik wax, repurposed dyes, and water-optimised processing",
-    desc: "The endless Ys, the endless \"whys\". This piece was born out of a place of deep frustration, but also a lot of hope. Living through a really difficult, turbulent political time in Nigeria. Creating this fabric was a way to fight back against that feeling. I realised that the only way forward is to never stop asking questions. Curiosity isn't passive; it's the very backbone of how we learn, resist and grow."
+    desc: 'The endless Ys, the endless "whys". This piece was born out of a place of deep frustration, but also a lot of hope. Living through a really difficult, turbulent political time in Nigeria. Creating this fabric was a way to fight back against that feeling. I realised that the only way forward is to never stop asking questions. Curiosity isn\'t passive; it\'s the very backbone of how we learn, resist and grow.'
   },
   {
     num: 3,
@@ -601,7 +210,7 @@ const spaces = [
     artist: "Yíímiiká",
     year: "May 2026 - Slow-Eco Textile Workshop",
     medium: "Onion skin from Southlands kitchen, Cassava Paste (manihot esculenta), Natural dyes, Stencil, Cotton fabric",
-    desc: "\"Nature\" dives into the indigenous Nigerian resist-dye tradition Àdìrẹ Ẹlẹ̀kọ (starch-resist). Cassava is an edible plant grown and eaten in most parts of West Africa — in Nigeria as far back as the 16th century. The flowery patterns were designed using cassava paste as a special starch resist ingredient and were naturally dyed from food waste: onion skin from the Southlands kitchen.\n\nRevisiting historic techniques does more than preserve a rich cultural heritage — it shifts our modern perspective on sustainability. Engaging with these ancient crafts forces us to slow down enough to appreciate the true cost and value of what we consume."
+    desc: '"Nature" dives into the indigenous Nigerian resist-dye tradition Àdìrẹ Ẹlẹ̀kọ (starch-resist). Cassava is an edible plant grown and eaten in most parts of West Africa — in Nigeria as far back as the 16th century. The flowery patterns were designed using cassava paste as a special starch resist ingredient and were naturally dyed from food waste: onion skin from the Southlands kitchen.\n\nRevisiting historic techniques does more than preserve a rich cultural heritage — it shifts our modern perspective on sustainability. Engaging with these ancient crafts forces us to slow down enough to appreciate the true cost and value of what we consume.'
   },
   {
     num: 5,
@@ -628,7 +237,7 @@ const spaces = [
     desc: "A compostable textile mobile and a forever polyester dinner jacket. Polyester fabric is a carbon petroleum-based product that first came to market in the 1930s. In just under 100 years it has become the most widely used fabric. It can take over 2,000 years to decompose, eventually turning into microplastics that pollute the air, land and waterways. Annual global production of polyester is about 78 million tonnes; comprising about 87% of the global annual textile waste of 92 million tonnes that is dumped or burned. Currently only 1–3% of textiles are recycled."
   },
   {
-    num: "8",
+    num: 8,
     title: "Tread Lightly",
     artist: "Bridget Moira Steenkamp & UR & Southlands Students",
     year: "May 2026",
@@ -636,7 +245,7 @@ const spaces = [
     desc: "This group art piece was inspired by the approximately 900,000-year-old footprints exposed after a storm in May 2013 on the beach at Happisburgh, Norfolk. The small group of hunter-gatherers only left their footprints in the mud, no litter or tools were found. Their carbon footprint was zero.\n\nContrast this to today, when the average UK resident has an estimated carbon footprint of 8–13 tonnes of CO₂ per year, and around 270 kg of CO₂ is generated per person annually from clothing alone. This artwork creates circular fashion by reusing cotton destined for landfill, food waste, and mud to tell a story full of colour and meaning."
   },
   {
-    num: "9",
+    num: 9,
     title: "Upcycling Our Water Footprints",
     artist: "Bridget Moira Steenkamp & UR & Southlands Students",
     year: "2024 & ongoing",
@@ -644,13 +253,24 @@ const spaces = [
     desc: "This jacket contrasts the zero water footprint of nettle fibre with the huge water footprint of cotton. The UN estimates that a single pair of jeans can require up to 10,000 litres of water to produce. By recycling used denim and stitching it in the Sashiko style with handmade nettle threads, this piece contemplates the Japanese concepts of Wabi-sabi, finding beauty in imperfection and the passage of time; and Mottainai, the feeling of regret over something going to waste."
   },
   {
-    num: "10",
+    num: 10,
     title: "Reclaim",
     artist: "Bridget Moira Steenkamp & SATCoL",
     year: "2026 & ongoing",
     medium: "Polyester · 100 × 50 cm",
-    desc: "Our greatest crisis is not a lack of resources, but a lack of responsible action. If we all tidy our own little spaces, then we are an active part of the solution."
+    desc: "This jacket contrasts the zero water footprint of nettle fibre with the huge water footprint of cotton. The UN estimates that a single pair of jeans can require up to 10,000 litres of water to produce. By recycling used denim and stitching it in the Sashiko style with handmade nettle threads, this piece contemplates the Japanese concepts of Wabi-sabi, finding beauty in imperfection and the passage of time; and Mottainai, the feeling of regret over something going to waste."
   }
+,
+  {
+    num: "11",
+    title: "Yeni – A Dedication",
+    artist: "Yíímiiká",
+    year: "May 1960 – Dec 2024",
+    medium: "Video documentation · personal archive",
+    hasVideo: true,
+    desc: "Nine months before she passed, I filmed my Aunt Yeni, completely immersed in her craft. She held a meticulous and beautiful relationship with the world — guided by a fierce devotion to symmetry, order, and cleanliness that shaped every corner of her space. In this quiet discipline, she practised a kind of sustainability we only fully appreciate in hindsight, hand-sewing her own clothes and household linens with remarkable care.\n\nHer final years were marked by deep physical and mental struggles, making her absence a complex kind of grief. Yet what remains are memories rich with warmth: the sweet aroma of her Saturday morning cooking, her generous and cheerful spirit, and the boundless energy she poured into the youth who loved her. She did everything with her whole heart.\n\nRest well, Auntie. You are free now — and the beauty of your careful, enduring threads lives on."
+  }
+
 ];
 
 const list = document.getElementById('spaces-list');
@@ -686,6 +306,17 @@ function openSheet(s) {
      <div class="sheet-meta-row"><strong>Medium:</strong> ${s.medium}</div>`;
   document.getElementById('sheet-desc').innerHTML =
     s.desc.split('\n\n').map(p => `<p style="margin-top:0.9rem">${p}</p>`).join('');
+  const videoEl = document.getElementById('sheet-video');
+  if (s.hasVideo) {
+    videoEl.style.display = 'block';
+    videoEl.innerHTML = `<video controls playsinline preload="metadata">
+      <source src="yeni.mp4" type="video/mp4">
+    </video>
+    <div class="video-caption">Aunt Yeni at work — filmed nine months before her passing.</div>`;
+  } else {
+    videoEl.style.display = 'none';
+    videoEl.innerHTML = '';
+  }
   overlay.classList.add('open');
   document.body.style.overflow = 'hidden';
 }
@@ -693,6 +324,8 @@ function openSheet(s) {
 function closeSheet() {
   overlay.classList.remove('open');
   document.body.style.overflow = '';
+  const v = document.querySelector('#sheet-video video');
+  if (v) { v.pause(); }
 }
 
 document.getElementById('close-btn').addEventListener('click', closeSheet);
