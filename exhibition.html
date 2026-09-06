@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exhibition Spaces — Thread Carefully</title>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LPKM51WW64"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-LPKM51WW64');
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="color-bar"><span></span><span></span><span></span></div>
+<div class="page-header">
+  <span class="page-header-label">Thread Carefully</span>
+  <div class="page-header-title">Exhibition Spaces</div>
+  <div class="page-header-sub">9 – 12 June 2026 · The Well, Southlands Chapel</div>
+  <img class="page-header-bg" src="images/the-well.jpg" alt="The Well, Southlands Chapel">
+</div>
+<div class="wave"></div>
+
+<p class="signpost">Each space below corresponds to a numbered artwork in the exhibition. Tap to read the artist's statement and learn more.</p>
+
+<div class="spaces" id="spaces-list"></div>
+
+<br>
+
+<div class="section-label"><span>The Team</span></div>
+<div class="team-section">
+  <p class="team-text">This exhibition would have been nothing without the relentless people working behind the scenes — an entire ecosystem of hard work and shared vision.</p>
+  <div class="handles">
+    <span class="handle-pill">Oreoluwa Ayoyimika ODUFEJO (YÍÍMIIKÁ)</span>
+    <span class="handle-pill">Bridget Moira Steenkamp</span>
+    <span class="handle-pill">Nicola Morrison</span>
+    <span class="handle-pill">Patrick Orji</span>
+    <span class="handle-pill">Abena Abboah-Offei</span>
+    <span class="handle-pill">Joshua Kayode — RSU President (2025-2026)</span>
+    <span class="handle-pill">Naveena Gaddam</span>
+    <span class="handle-pill">Adekola Aminat Damilola</span>
+    <span class="handle-pill">Rachel Onajayefe</span>
+    <span class="handle-pill">Polina Hlushko</span>
+    <span class="handle-pill">Maliha Siddique</span>
+    <span class="handle-pill">Oluwafemi Oshofisan</span>
+    <span class="handle-pill">Daniel Odunlami</span>
+    <span class="handle-pill">Victor Oluyitan</span>
+    <span class="handle-pill">Toyyibat Abisola Alao</span>
+    <span class="handle-pill">Emmanuel Chisom Ogbogu-Fidelis</span>
+  </div>
+</div>
+
+<footer class="thanks">
+  <span class="thanks-label">With gratitude</span>
+  <p>Thank you to every student, staff member, and collaborator who showed up, experimented, and made their fashionable mark with us.</p>
+  <div class="thanks-names">
+    SOUTHLANDS METHODIST TRUST<br>
+    Roehampton Sustainability Team · Southlands College · Bridget's Slow Workshops<br>
+    Roehampton Student Union · Greenpeace Africa · Salvation Army Trading Company Limited (SATCoL) · Society Of African Students
+  </div>
+
+ <div class="site-credit">Website designed &amp; developed by Abena Ofosua Abboah-Offei</div>
+</footer>
+<div class="color-bar"><span></span><span></span><span></span></div>
+<nav class="bottom-nav">
+  <a href="index.html" class="nav-item"><span class="nav-icon">🏠</span><span class="nav-label">Home</span></a>
+  <a href="colloquium.html" class="nav-item"><span class="nav-icon">🎤</span><span class="nav-label">Colloquium</span></a>
+  <!-- <a href="workshop.html" class="nav-item"><span class="nav-icon">🧵</span><span class="nav-label">Workshop</span></a> -->
+  <!-- <a href="satcol.html" class="nav-item"><span class="nav-icon">♻️</span><span class="nav-label">SATCoL</span></a> -->
+  <a href="exhibition.html" class="nav-item active"><span class="nav-icon">🖼</span><span class="nav-label">Exhibition</span></a>
+  </nav>
+<div class="overlay" id="overlay" role="dialog" aria-modal="true">
+  <div class="sheet" id="sheet">
+    <div class="sheet-handle"></div>
+    <button class="sheet-close" id="close-btn" aria-label="Close">✕</button>
+    <div class="sheet-header">
+      <div class="sheet-space-num" id="sheet-num"></div>
+      <div class="sheet-title" id="sheet-title"></div>
+      <div class="sheet-artist" id="sheet-artist"></div>
+    </div>
+    <div class="sheet-gallery" id="sheet-gallery"></div>
+    <div class="sheet-meta" id="sheet-meta"></div>
+    <div class="sheet-video" id="sheet-video"></div>
+    <div class="sheet-desc" id="sheet-desc"></div>
+  </div>
+</div>
+<div class="lightbox-overlay" id="lightbox-overlay">
+  <button class="lightbox-close" id="lightbox-close" aria-label="Close">✕</button>
+  <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous photo">‹</button>
+  <div class="lightbox-stage" id="lightbox-stage"></div>
+  <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next photo">›</button>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
